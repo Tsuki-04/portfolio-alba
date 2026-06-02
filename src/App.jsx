@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import "./App.responsive.css";
 import { motion } from "motion/react";
 import {
   ArrowRight,
@@ -44,6 +45,19 @@ import {
   SiVite,
 } from "react-icons/si";
 
+const routes = {
+  home: "#inicio",
+  projects: "#/projects",
+  leJardinDetail: "#/projects/le-jardin-de-berry",
+  stack: "#stack",
+  about: "#/about",
+  contact: "#/contact",
+};
+
+const publicAsset = (path) => {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+};
+
 const translations = {
   es: {
     brandAria: "Inicio",
@@ -82,7 +96,7 @@ const translations = {
       cvButton: "Descargar CV",
     },
     cv: {
-      href: "/cv/alba-valdunciel-cv-es.pdf",
+      path: "cv/alba-valdunciel-cv-es.pdf",
       filename: "Alba-Valdunciel-CV-ES.pdf",
     },
     stack: {
@@ -98,6 +112,8 @@ const translations = {
       eyebrow: "Portfolio",
       title: "Proyectos destacados",
       viewAll: "Ver todos los proyectos",
+      viewDetails: "Ver proyecto",
+      comingSoon: "Próximamente",
     },
   },
 
@@ -138,7 +154,7 @@ const translations = {
       cvButton: "Download CV",
     },
     cv: {
-      href: "/cv/alba-valdunciel-cv-en.pdf",
+      path: "cv/alba-valdunciel-cv-en.pdf",
       filename: "Alba-Valdunciel-CV-EN.pdf",
     },
     stack: {
@@ -154,6 +170,8 @@ const translations = {
       eyebrow: "Portfolio",
       title: "Featured projects",
       viewAll: "View all projects",
+      viewDetails: "View project",
+      comingSoon: "Coming soon",
     },
   },
 };
@@ -261,11 +279,13 @@ const projects = [
       en: "Full stack web application for a bakery with catalogue, users, cart, orders, database and admin panel.",
     },
     tags: ["PHP", "MariaDB", "JavaScript"],
-    image: "/img/projects/homepage/le-jardin-de-berry.webp",
+    image: "img/projects/homepage/le-jardin-de-berry.webp",
     imageAlt: {
       es: "Vista previa del proyecto Le Jardin de Berry",
       en: "Preview of the Le Jardin de Berry project",
     },
+    path: routes.leJardinDetail,
+    isAvailable: true,
   },
   {
     title: "Env Guardian",
@@ -274,11 +294,13 @@ const projects = [
       en: "Python CLI tool to analyse .env files, detect configuration risks and generate reports.",
     },
     tags: ["Python", "CLI", "Security"],
-    image: "/img/projects/homepage/env-guardian.webp",
+    image: "img/projects/homepage/env-guardian.webp",
     imageAlt: {
       es: "Vista previa tipo terminal del proyecto Env Guardian",
       en: "Terminal-style preview of the Env Guardian project",
     },
+    path: null,
+    isAvailable: false,
   },
   {
     title: "Sistema de gestión",
@@ -287,11 +309,13 @@ const projects = [
       en: "Work on an internal management system focused on security, permissions, auditing, database and interface.",
     },
     tags: ["Laravel", "PostgreSQL", "Docker"],
-    image: "/img/projects/homepage/sistema-gestion.webp",
+    image: "img/projects/homepage/sistema-gestion.webp",
     imageAlt: {
       es: "Vista previa abstracta del sistema de gestión",
       en: "Abstract preview of the management system",
     },
+    path: null,
+    isAvailable: false,
   },
 ];
 
@@ -374,7 +398,7 @@ function ProjectPreview({ project, language }) {
     <div className="project-preview">
       <img
         className="project-cover-image"
-        src={project.image}
+        src={publicAsset(project.image)}
         alt={project.imageAlt[language]}
         loading="lazy"
         onError={(event) => {
@@ -382,6 +406,63 @@ function ProjectPreview({ project, language }) {
         }}
       />
     </div>
+  );
+}
+
+function ProjectCard({ project, language, index, content }) {
+  const cardContent = (
+    <>
+      <ProjectPreview project={project} language={language} />
+
+      <div className="project-info">
+        <div className="project-title-row">
+          <h3>{project.title}</h3>
+
+          {project.isAvailable ? (
+            <ExternalLink size={16} />
+          ) : (
+            <span className="project-status-pill">
+              {content.projects.comingSoon}
+            </span>
+          )}
+        </div>
+
+        <p>{project.description[language]}</p>
+
+        <div className="project-tags">
+          {project.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
+  if (project.isAvailable) {
+    return (
+      <motion.a
+        className="project-card project-card-active"
+        href={project.path}
+        aria-label={`${content.projects.viewDetails}: ${project.title}`}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: 0.12 * index }}
+      >
+        {cardContent}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.article
+      className="project-card project-card-disabled"
+      aria-label={`${project.title} - ${content.projects.comingSoon}`}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.12 * index }}
+    >
+      {cardContent}
+    </motion.article>
   );
 }
 
@@ -410,7 +491,7 @@ function App() {
       <div className="page-glow page-glow-two"></div>
 
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label={content.brandAria}>
+        <a className="brand" href={routes.home} aria-label={content.brandAria}>
           <span className="brand-icon">
             <Code2 size={22} />
           </span>
@@ -418,13 +499,13 @@ function App() {
         </a>
 
         <nav className="main-nav">
-          <a className="active" href="#inicio">
+          <a className="active" href={routes.home}>
             {content.nav.home}
           </a>
-          <a href="#proyectos">{content.nav.projects}</a>
-          <a href="#stack">{content.nav.stack}</a>
-          <a href="#sobre-mi">{content.nav.about}</a>
-          <a href="#contacto">{content.nav.contact}</a>
+          <a href={routes.projects}>{content.nav.projects}</a>
+          <a href={routes.stack}>{content.nav.stack}</a>
+          <a href={routes.about}>{content.nav.about}</a>
+          <a href={routes.contact}>{content.nav.contact}</a>
         </nav>
 
         <div className="header-actions">
@@ -439,7 +520,7 @@ function App() {
             <Moon size={16} />
           </button>
 
-          <a className="talk-button" href="#contacto">
+          <a className="talk-button" href="mailto:alba.vgk.2005@gmail.com">
             {content.header.talk}
             <Mail size={17} />
           </a>
@@ -546,14 +627,14 @@ function App() {
                   </p>
 
                   <div className="hero-buttons hero-buttons-compact">
-                    <a className="button button-primary" href="#proyectos">
+                    <a className="button button-primary" href={routes.projects}>
                       <FolderGit2 size={18} />
                       {content.hero.projectsButton}
                     </a>
 
                     <a
                       className="button button-secondary"
-                      href={content.cv.href}
+                      href={publicAsset(content.cv.path)}
                       download={content.cv.filename}
                     >
                       <Download size={18} />
@@ -582,7 +663,7 @@ function App() {
                     <h2>{content.stack.title}</h2>
                   </div>
 
-                  <a href="#stack">
+                  <a href={routes.stack}>
                     {content.stack.viewAll} <ArrowRight size={16} />
                   </a>
                 </div>
@@ -645,37 +726,20 @@ function App() {
                   <h2 id="projects-title">{content.projects.title}</h2>
                 </div>
 
-                <a href="#proyectos">
+                <a href={routes.projects}>
                   {content.projects.viewAll} <ArrowRight size={16} />
                 </a>
               </div>
 
               <div className="projects-grid">
                 {projects.map((project, index) => (
-                  <motion.article
-                    className="project-card"
+                  <ProjectCard
                     key={project.title}
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.45, delay: 0.12 * index }}
-                  >
-                    <ProjectPreview project={project} language={language} />
-
-                    <div className="project-info">
-                      <div className="project-title-row">
-                        <h3>{project.title}</h3>
-                        <ExternalLink size={16} />
-                      </div>
-
-                      <p>{project.description[language]}</p>
-
-                      <div className="project-tags">
-                        {project.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.article>
+                    project={project}
+                    language={language}
+                    index={index}
+                    content={content}
+                  />
                 ))}
               </div>
             </section>
