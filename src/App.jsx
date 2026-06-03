@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 import "./styles/App.css";
 import "./styles/project-pages.css";
-import "./styles/App.responsive.css";
+import "./styles/homepage-responsive.css";
+import "./styles/project-pages.responsive.css";
 
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
