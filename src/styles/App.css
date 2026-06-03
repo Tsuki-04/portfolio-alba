@@ -896,3 +896,13 @@ a {
   transform: none;
   box-shadow: none;
 }
+
+
+/* Welcome card */
+
+.welcome-avatar {
+  width: min(78%, 150px);
+  height: min(78%, 150px);
+  display: block;
+  object-fit: contain;
+}

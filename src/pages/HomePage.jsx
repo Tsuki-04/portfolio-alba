@@ -40,7 +40,12 @@ function HomePage({ content, language, showAllTech, setShowAllTech }) {
             <WindowFrame title={content.sidebar.welcomeTitle} accent="blue">
               <div className="cat-card">
                 <div className="cat-placeholder">
-                  <span className="cat-emoji">🐱</span>
+                  <img
+                    className="welcome-avatar"
+                    src={publicAsset("img/home/welcome-avatar.webp")}
+                    alt=""
+                    aria-hidden="true"
+                  />
                 </div>
 
                 <p className="cat-text">{content.sidebar.welcomeText}</p>
