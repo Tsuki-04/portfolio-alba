@@ -1,0 +1,53 @@
+import { Code2, Mail, Moon, Sun } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
+import { routes } from "../data/projects";
+
+function Header({ content, language, setLanguage, currentRoute }) {
+  const isProjectsActive =
+    currentRoute === "projects" || currentRoute === "le-jardin-de-berry";
+
+  return (
+    <header className="site-header">
+      <a className="brand" href={routes.home} aria-label={content.brandAria}>
+        <span className="brand-icon">
+          <Code2 size={22} />
+        </span>
+        <span>alba.dev</span>
+      </a>
+
+      <nav className="main-nav">
+        <a className={currentRoute === "home" ? "active" : ""} href={routes.home}>
+          {content.nav.home}
+        </a>
+
+        <a className={isProjectsActive ? "active" : ""} href={routes.projects}>
+          {content.nav.projects}
+        </a>
+
+        <a href={routes.stack}>{content.nav.stack}</a>
+        <a href={routes.about}>{content.nav.about}</a>
+        <a href={routes.contact}>{content.nav.contact}</a>
+      </nav>
+
+      <div className="header-actions">
+        <LanguageToggle
+          language={language}
+          setLanguage={setLanguage}
+          label={content.languageLabel}
+        />
+
+        <button className="theme-toggle" aria-label={content.themeLabel}>
+          <Sun size={17} />
+          <Moon size={16} />
+        </button>
+
+        <a className="talk-button" href={routes.contact}>
+          {content.header.talk}
+          <Mail size={17} />
+        </a>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
