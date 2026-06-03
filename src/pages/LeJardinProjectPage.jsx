@@ -34,7 +34,9 @@ import {
 } from "react-icons/si";
 
 import ProjectImageGallery from "../components/ProjectImageGallery";
-import { projects, routes } from "../data/projects";
+import { routes } from "../data/projects";
+
+const leJardinLiveUrl = "https://lejardindeberry.infinityfree.io/";
 
 const projectGalleryItems = [
   {
@@ -272,18 +274,22 @@ function LeJardinProjectPage({ content, language }) {
               Web e-commerce completa con catálogo, carrito, sistema de pedidos, área de cliente y panel de administración conectado a base de datos.
             </p>
 
-            <button
+            <a
               className="button button-primary le-jardin-demo-button"
-              type="button"
-              disabled
+              href={leJardinLiveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <ExternalLink size={18} />
               Ver proyecto
-            </button>
+            </a>
           </div>
         </motion.article>
 
-        <section className="le-jardin-summary-strip" aria-label="Resumen del proyecto">
+        <section
+          className="le-jardin-summary-strip"
+          aria-label="Resumen del proyecto"
+        >
           <div className="le-jardin-summary-title">
             <h2>Resumen del proyecto</h2>
           </div>
