@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import "./styles/App.css";
 import "./styles/project-pages.css";
+import "./styles/le-jardin-project.css";
+import "./styles/le-jardin-project.responsive.css";
 import "./styles/homepage-responsive.css";
 import "./styles/project-pages.responsive.css";
 

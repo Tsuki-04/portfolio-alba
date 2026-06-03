@@ -1,0 +1,525 @@
+/* Desktop */
+
+@media (max-width: 1440px) {
+  .le-jardin-hero {
+    height: 500px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+  }
+
+  .le-jardin-summary-strip {
+    gap: 18px;
+  }
+
+  .le-jardin-summary-item {
+    gap: 14px;
+  }
+}
+
+/* Laptop */
+
+@media (max-width: 1280px) {
+  .le-jardin-hero {
+    height: 480px;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+  }
+
+  .le-jardin-gallery {
+    padding: 24px;
+  }
+
+  .le-jardin-hero-content {
+    padding: 32px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+  }
+
+  .le-jardin-subtitle,
+  .le-jardin-description {
+    font-size: 0.95rem;
+  }
+
+  .le-jardin-summary-strip {
+    padding: 22px;
+    grid-template-columns: 0.8fr repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .le-jardin-summary-title h2 {
+    font-size: 1.04rem;
+  }
+
+  .le-jardin-summary-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 16px;
+  }
+
+  .le-jardin-summary-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .le-jardin-summary-item p {
+    font-size: 0.78rem;
+  }
+}
+
+/* Tablet horizontal */
+
+@media (max-width: 1100px) {
+  .le-jardin-page,
+  .le-jardin-hero,
+  .le-jardin-summary-strip,
+  .le-jardin-info-grid,
+  .le-jardin-features-grid {
+    min-width: 0;
+  }
+
+  .le-jardin-hero {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 420px;
+  }
+
+  .le-jardin-gallery {
+    padding: 24px;
+  }
+
+  .le-jardin-hero-content {
+    padding: 34px;
+  }
+
+  .le-jardin-hero-content h1 {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 6vw, 3.3rem);
+  }
+
+  .le-jardin-subtitle,
+  .le-jardin-description {
+    max-width: 760px;
+  }
+
+  .le-jardin-summary-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 24px;
+  }
+
+  .le-jardin-summary-title {
+    grid-column: 1 / -1;
+    min-height: auto;
+    padding: 0 0 18px;
+    border-right: 0;
+    border-bottom: 1px dashed var(--border-soft);
+  }
+
+  .le-jardin-summary-title h2 {
+    max-width: none;
+  }
+
+  .le-jardin-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .le-jardin-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* Tablet vertical */
+
+@media (max-width: 900px) {
+  .le-jardin-page {
+    gap: 18px;
+  }
+
+  .le-jardin-hero,
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    border-radius: 24px;
+  }
+
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 360px;
+  }
+
+  .le-jardin-gallery {
+    padding: 22px;
+  }
+
+  .le-jardin-hero-content {
+    padding: 30px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .le-jardin-summary-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .le-jardin-summary-item {
+    align-items: flex-start;
+  }
+
+  .le-jardin-panel {
+    padding: 24px;
+  }
+
+  .le-jardin-tech-list {
+    gap: 9px;
+  }
+
+  .le-jardin-tech-pill {
+    min-height: 36px;
+    padding: 0 13px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Mobile large */
+
+@media (max-width: 760px) {
+  .le-jardin-page {
+    gap: 16px;
+  }
+
+  .le-jardin-hero,
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    border-radius: 22px;
+  }
+
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 300px;
+  }
+
+  .le-jardin-gallery {
+    padding: 18px;
+  }
+
+  .le-jardin-gallery-control {
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+  }
+
+  .le-jardin-gallery-control-prev {
+    left: 12px;
+  }
+
+  .le-jardin-gallery-control-next {
+    right: 12px;
+  }
+
+  .le-jardin-gallery-info {
+    left: 12px;
+    bottom: 12px;
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+
+  .le-jardin-hero-content {
+    padding: 26px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(1.85rem, 8vw, 2.55rem);
+  }
+
+  .le-jardin-subtitle {
+    margin-top: 14px;
+    font-size: 0.92rem;
+  }
+
+  .le-jardin-description {
+    margin-top: 12px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .le-jardin-demo-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .le-jardin-summary-strip {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .le-jardin-summary-title {
+    padding-bottom: 16px;
+  }
+
+  .le-jardin-summary-item {
+    gap: 14px;
+  }
+
+  .le-jardin-summary-icon {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .le-jardin-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .le-jardin-feature-item {
+    border-radius: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .le-jardin-hero,
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    border-radius: 20px;
+  }
+
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 250px;
+  }
+
+  .le-jardin-gallery {
+    padding: 14px;
+  }
+
+  .le-jardin-gallery-info {
+    max-width: calc(100% - 24px);
+  }
+
+  .le-jardin-gallery-info span {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .le-jardin-hero-content {
+    padding: 22px;
+  }
+
+  .le-jardin-kicker {
+    gap: 9px;
+  }
+
+  .le-jardin-kicker-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 11px;
+  }
+
+  .le-jardin-kicker .eyebrow {
+    min-height: 32px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(1.65rem, 9vw, 2.25rem);
+  }
+
+  .le-jardin-subtitle,
+  .le-jardin-description {
+    font-size: 0.9rem;
+  }
+
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    padding: 20px;
+  }
+
+  .le-jardin-panel-heading {
+    align-items: flex-start;
+  }
+
+  .le-jardin-panel-heading h2 {
+    font-size: 1.08rem;
+  }
+
+  .le-jardin-panel p {
+    font-size: 0.92rem;
+  }
+
+  .le-jardin-panel-bow,
+  .le-jardin-features-panel::after {
+    display: none;
+  }
+
+  .le-jardin-tech-pill {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+  }
+
+  .le-jardin-feature-item {
+    min-height: 42px;
+    padding: 0 10px;
+  }
+
+  .le-jardin-feature-item p {
+    font-size: 0.86rem;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 215px;
+  }
+
+  .le-jardin-gallery {
+    padding: 12px;
+  }
+
+  .le-jardin-gallery-control {
+    width: 36px;
+    height: 36px;
+  }
+
+  .le-jardin-gallery-control-prev {
+    left: 10px;
+  }
+
+  .le-jardin-gallery-control-next {
+    right: 10px;
+  }
+
+  .le-jardin-gallery-info {
+    left: 10px;
+    bottom: 10px;
+    min-height: 34px;
+    font-size: 0.76rem;
+  }
+
+  .le-jardin-gallery-info small {
+    font-size: 0.72rem;
+  }
+
+  .le-jardin-hero-content {
+    padding: 20px;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: clamp(1.5rem, 9.5vw, 2rem);
+  }
+
+  .le-jardin-subtitle,
+  .le-jardin-description,
+  .le-jardin-panel p {
+    font-size: 0.86rem;
+  }
+
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    padding: 18px;
+  }
+
+  .le-jardin-summary-item {
+    gap: 12px;
+  }
+
+  .le-jardin-summary-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    border-radius: 14px;
+  }
+
+  .le-jardin-summary-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .le-jardin-summary-item p {
+    font-size: 0.78rem;
+  }
+
+  .le-jardin-tech-list {
+    gap: 8px;
+  }
+
+  .le-jardin-tech-pill {
+    font-size: 0.76rem;
+  }
+
+  .le-jardin-feature-item span {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+}
+
+/* Extra small mobile */
+
+@media (max-width: 390px) {
+  .le-jardin-hero-image,
+  .le-jardin-gallery {
+    height: 190px;
+  }
+
+  .le-jardin-gallery {
+    padding: 10px;
+  }
+
+  .le-jardin-hero-content {
+    padding: 18px;
+  }
+
+  .le-jardin-kicker {
+    flex-wrap: wrap;
+  }
+
+  .le-jardin-hero-content h1 {
+    font-size: 1.65rem;
+  }
+
+  .le-jardin-demo-button {
+    min-height: 44px;
+  }
+
+  .le-jardin-summary-strip,
+  .le-jardin-panel {
+    padding: 16px;
+  }
+
+  .le-jardin-tech-pill {
+    min-height: 32px;
+    padding: 0 10px;
+  }
+
+  .le-jardin-feature-item p {
+    font-size: 0.82rem;
+  }
+}
+
+/* Touch devices */
+
+@media (hover: none) {
+  .le-jardin-gallery-control {
+    opacity: 1;
+  }
+
+  .le-jardin-gallery-control:hover {
+    transform: translateY(-50%);
+    box-shadow: var(--shadow-card-soft);
+  }
+}
