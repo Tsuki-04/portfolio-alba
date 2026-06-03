@@ -1,0 +1,394 @@
+/* Le Jardin page */
+
+.le-jardin-page {
+  display: grid;
+  gap: 22px;
+}
+
+.le-jardin-hero,
+.le-jardin-summary-strip,
+.le-jardin-panel {
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  background: var(--surface-glass);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+/* Hero */
+
+.le-jardin-hero {
+  height: 520px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.le-jardin-hero-image {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--surface-soft);
+}
+
+.le-jardin-hero-image:not(.le-jardin-gallery) img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.le-jardin-hero-content {
+  position: relative;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.le-jardin-hero-content::after {
+  content: "✧";
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  opacity: 0.35;
+}
+
+.le-jardin-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.le-jardin-kicker .eyebrow {
+  min-height: 34px;
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.le-jardin-kicker-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--gradient-primary-soft);
+  color: var(--primary-dark);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.le-jardin-hero-content h1 {
+  max-width: 640px;
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.le-jardin-subtitle {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: var(--text-main);
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.le-jardin-description {
+  max-width: 640px;
+  margin: 14px 0 0;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.le-jardin-demo-button {
+  width: fit-content;
+  margin-top: 24px;
+  align-self: flex-start;
+}
+
+.le-jardin-demo-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.le-jardin-demo-button:disabled:hover {
+  transform: none;
+}
+
+/* Gallery */
+
+.le-jardin-gallery {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  padding: 28px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--surface-soft);
+}
+
+.le-jardin-gallery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.le-jardin-gallery-control {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--surface-button);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-card-soft);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.le-jardin-gallery:hover .le-jardin-gallery-control,
+.le-jardin-gallery-control:focus-visible {
+  opacity: 1;
+}
+
+.le-jardin-gallery-control:hover {
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: var(--shadow-pink-small);
+}
+
+.le-jardin-gallery-control-prev {
+  left: 18px;
+}
+
+.le-jardin-gallery-control-next {
+  right: 18px;
+}
+
+.le-jardin-gallery-info {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--surface-button);
+  box-shadow: var(--shadow-card-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-main);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.le-jardin-gallery-info small {
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+/* Summary */
+
+.le-jardin-summary-strip {
+  min-height: 120px;
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 0.95fr repeat(4, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.le-jardin-summary-title {
+  min-height: 72px;
+  padding-left: 10px;
+  padding-right: 22px;
+  border-right: 1px dashed var(--border-soft);
+  display: flex;
+  align-items: center;
+}
+
+.le-jardin-summary-title h2 {
+  max-width: 160px;
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.le-jardin-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.le-jardin-summary-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--gradient-primary-soft);
+  color: var(--primary-dark);
+}
+
+.le-jardin-summary-item h3 {
+  margin: 0 0 5px;
+  font-size: 0.98rem;
+  letter-spacing: -0.02em;
+}
+
+.le-jardin-summary-item p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* Panels */
+
+.le-jardin-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.le-jardin-panel {
+  position: relative;
+  padding: 26px;
+}
+
+.le-jardin-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.le-jardin-panel-heading svg {
+  color: var(--primary-dark);
+}
+
+.le-jardin-panel-heading h2 {
+  margin: 0;
+  font-size: 1.16rem;
+  letter-spacing: -0.03em;
+}
+
+.le-jardin-panel p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.le-jardin-panel-bow {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  color: var(--primary-dark);
+  font-size: 1.7rem;
+  opacity: 0.35;
+}
+
+.le-jardin-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.le-jardin-tech-pill {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--text-tag-pink);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.le-jardin-tech-pill:nth-child(even) {
+  background: var(--accent-soft);
+  color: var(--text-tag-purple);
+}
+
+.le-jardin-tech-pill svg {
+  flex-shrink: 0;
+  color: var(--tech-color);
+}
+
+/* Features */
+
+.le-jardin-features-panel::after {
+  content: "୨୧";
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  color: var(--primary-dark);
+  font-size: 1.7rem;
+  opacity: 0.35;
+}
+
+.le-jardin-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
+}
+
+.le-jardin-feature-item {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: var(--surface-card);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card-soft);
+}
+
+.le-jardin-feature-item span {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.le-jardin-feature-item p {
+  flex: 1;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.le-jardin-feature-item > svg {
+  color: var(--primary-dark);
+  opacity: 0.55;
+}
