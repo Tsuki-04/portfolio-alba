@@ -6,6 +6,10 @@ function Header({ content, language, setLanguage, currentRoute }) {
   const isProjectsActive =
     currentRoute === "projects" || currentRoute === "le-jardin-de-berry";
 
+  const handleDisabledLink = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <header className="site-header">
       <a className="brand" href={routes.home} aria-label={content.brandAria}>
@@ -24,9 +28,32 @@ function Header({ content, language, setLanguage, currentRoute }) {
           {content.nav.projects}
         </a>
 
-        <a href={routes.stack}>{content.nav.stack}</a>
-        <a href={routes.about}>{content.nav.about}</a>
-        <a href={routes.contact}>{content.nav.contact}</a>
+        <a
+          className="nav-disabled"
+          href="#"
+          aria-disabled="true"
+          onClick={handleDisabledLink}
+        >
+          {content.nav.stack}
+        </a>
+
+        <a
+          className="nav-disabled"
+          href="#"
+          aria-disabled="true"
+          onClick={handleDisabledLink}
+        >
+          {content.nav.about}
+        </a>
+
+        <a
+          className="nav-disabled"
+          href="#"
+          aria-disabled="true"
+          onClick={handleDisabledLink}
+        >
+          {content.nav.contact}
+        </a>
       </nav>
 
       <div className="header-actions">
@@ -41,7 +68,12 @@ function Header({ content, language, setLanguage, currentRoute }) {
           <Moon size={16} />
         </button>
 
-        <a className="talk-button" href={routes.contact}>
+        <a
+          className="talk-button talk-button-disabled"
+          href="#"
+          aria-disabled="true"
+          onClick={handleDisabledLink}
+        >
           {content.header.talk}
           <Mail size={17} />
         </a>

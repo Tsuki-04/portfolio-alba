@@ -876,3 +876,23 @@ a {
   color: #402530;
   box-shadow: 0 8px 18px rgba(244, 167, 194, 0.24);
 }
+
+/* Disabled header links */
+
+.main-nav .nav-disabled,
+.talk-button-disabled {
+  cursor: not-allowed;
+}
+
+.main-nav .nav-disabled:hover {
+  color: var(--text-soft);
+}
+
+.main-nav .nav-disabled::after {
+  display: none;
+}
+
+.talk-button-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

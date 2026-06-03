@@ -165,9 +165,7 @@ function HomePage({ content, language, showAllTech, setShowAllTech }) {
                   <h2>{content.stack.title}</h2>
                 </div>
 
-                <a href={routes.stack}>
-                  {content.stack.viewAll} <ArrowRight size={16} />
-                </a>
+
               </div>
 
               <div className="skills-grid">
